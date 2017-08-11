@@ -15,7 +15,7 @@ For example, it can be embedded in a shell script, it can be executed immediatel
 One-liners mode (expression evaluation mode) of GHC
 ---------------------------------------------------
 
-The GHC could evaluate a expression on your terminal such as bash ([see also](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/using.html#expression-evaluation-mode)): 
+The GHC could evaluate a single expression on your shell ([see also](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/using.html#expression-evaluation-mode)):
 
 ```
 $ ghc -e expr
@@ -172,7 +172,7 @@ $ ghc -e ':t foldl'
 foldl :: Foldable t => (b -> a -> b) -> b -> t a -> b
 ```
 
-If it is GHC 8.2 or later, you can use `:t +d`(:type +d) command for a more simple representation ([see also](https://downloads.haskell.org/%7Eghc/latest/docs/html/users_guide/ghci.html#ghci-cmd-:type%20+v)):
+If it is GHC 8.2 or later, you can use `:t +d`(:type +d) command for a more simple representation ([see also](https://downloads.haskell.org/%7Eghc/latest/docs/html/users_guide/ghci.html#ghci-cmd-:type%20+d%20%E2%9F%A8expression%E2%9F%A9)):
 ```
 $ ghc -e ':t +d foldl'
 foldl :: (b -> a -> b) -> b -> [a] -> b
@@ -195,7 +195,7 @@ Maybe :: * -> *
 ```
 
 
-By the way, you can also use quasquotes with shell variables! Tiny templating :)
+By the way, you can also use quasi-quarts with shell variables! Tiny templating :)
 ```
 $ NUM=5
 $ ghc -e "[1..$NUM]"
