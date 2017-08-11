@@ -210,14 +210,55 @@ $ ghc -e "zip $X1 $X2"
 [(1,'A'),(2,'B'),(3,'C')]
 ```
 
-Other miscellaneous recipes:
+
+Other miscellaneous recipes
+---------------------------
+
 ```
 $ NUMS="[1..3]"
 $ ghc -e "sum $NUMS"
 6
 ```
 
-Enjoy cooking!
+```
+$ cat test.dat | ghc -e "lines <$> getContents"
+["1","2","3"]
+```
+
+```
+$ cat test.dat | ghc -e "(sum . map read .lines) <$> getContents"
+6
+```
+
+```
+cat test.dat | ghc -e "(filter (>=2) . map read .lines) <$> getContents"
+[2,3]
+```
+
+```
+$ ghc -e "let x = 1; y = 2 in x+y"
+3
+```
+
+```
+$ ghc -e 'Text.Printf.printf "%s %d\n" "abc" 1'
+abc 1
+```
+
+```
+$ cat .ghci
+import Text.Printf
+
+$ ghc -e 'printf "%s %d\n" "abc" 1'
+abc
+```
+
+```
+$ ghc -e 'replicate 5 "hello"'
+["hello","hello","hello","hello","hello"]
+```
+
+Let's enjoy cooking!
 
 
 References
