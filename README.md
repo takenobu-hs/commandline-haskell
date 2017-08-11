@@ -84,7 +84,7 @@ hello Mike
 
 Numeric filter is also OK:
 ```
-$ cat test.dat
+$ cat test.dat    # data file for example
 1
 2
 3
@@ -124,14 +124,14 @@ $ ghc -e '(++) <$> ["R", "G", "B"] <*> map show [0..3]'
 ["R0","R1","R2","R3","G0","G1","G2","G3","B0","B1","B2","B3"]
 ```
 
-Want to generate a date string? :
+Want to generate date strings? :
 ```
 $ ghc -e '(++) <$> ["2016", "2017", "2018"] <*> ["Jan", "Feb", "Mar"]'
 ["2016Jan","2016Feb","2016Mar","2017Jan","2017Feb","2017Mar","2018Jan","2018Feb","2018Mar"]
 
 ```
 
-Let's insert a hyphen:
+Let's insert hyphens:
 ```
 $ ghc -e '(\x y -> x ++ "-" ++ y) <$> ["2016", "2017", "2018"] <*> ["Jan", "Feb", "Mar"]'
 ["2016-Jan","2016-Feb","2016-Mar","2017-Jan","2017-Feb","2017-Mar","2018-Jan","2018-Feb","2018-Mar"]
@@ -152,7 +152,7 @@ $ ghc -e 'mapM_ putStrLn $ (\x y -> x ++ "," ++ y) <$> ["2016", "2017", "2018"] 
 ```
 
 
-Well, do you want to know the type in the expression? You can use typed holes ([see also](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#typed-holes)) :
+Well, do you want to know the type in the expression? You can use typed holes with `_` ([see also](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#typed-holes)) :
 ```
 $ ghc -e 'foldl _ 0 [1..5]'
 
@@ -188,21 +188,21 @@ class Foldable (t :: * -> *) where
   	-- Defined in ‘Data.Foldable’
 ```
 
-You can also know the Kind by `:k`(:kind) command ([see also](http://learnyouahaskell.com/making-our-own-types-and-typeclasses#kinds-and-some-type-foo)):
+You can also know the kind by `:k`(:kind) command ([see also](http://learnyouahaskell.com/making-our-own-types-and-typeclasses#kinds-and-some-type-foo)):
 ```
 $ ghc -e ':k Maybe'
 Maybe :: * -> *
 ```
 
 
-By the way, you can also use quasquotes with shell variables!:
+By the way, you can also use quasquotes with shell variables! Tiny templating :)
 ```
 $ NUM=5
 $ ghc -e "[1..$NUM]"
 [1,2,3,4,5]
 ```
 
-You can pass data easily. Other examples:
+You can pass data easily:
 ```
 $ X1="[1..3]"
 $ X2="['A'..'C']"
@@ -210,6 +210,7 @@ $ ghc -e "zip $X1 $X2"
 [(1,'A'),(2,'B'),(3,'C')]
 ```
 
+Other miscellaneous recipes:
 ```
 $ NUMS="[1..3]"
 $ ghc -e "sum $NUMS"
@@ -227,3 +228,4 @@ References
  * [Haskell 2010 Language Report](https://www.haskell.org/onlinereport/haskell2010/)
  * [The Glasgow Haskell Compiler](https://www.haskell.org/ghc/)
  * [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/)
+
