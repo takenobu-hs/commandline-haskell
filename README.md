@@ -221,6 +221,11 @@ $ ghc -e "sum $NUMS"
 ```
 
 ```
+$ cat test.dat    # data file for example
+1
+2
+3
+
 $ cat test.dat | ghc -e "lines <$> getContents"
 ["1","2","3"]
 ```
